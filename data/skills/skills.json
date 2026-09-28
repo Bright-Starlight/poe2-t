@@ -1,0 +1,37 @@
+{
+  "fireball": {
+    "id": "fireball",
+    "name_cn": "爆裂火球",
+    "description": "发射一颗高爆火球，命中时造成范围火系爆炸伤害。",
+    "mana_cost": 15,
+    "cooldown": 1.2,
+    "damage_multiplier": 1.8,
+    "damage_type": "fire",
+    "projectile_speed": 260.0,
+    "aoe_radius": 32.0,
+    "color": "#ed8936"
+  },
+  "whirlwind": {
+    "id": "whirlwind",
+    "name_cn": "狂风旋斩",
+    "description": "周身爆发出 360 度剑气旋风，对近身所有敌人造成重击。",
+    "mana_cost": 22,
+    "cooldown": 2.5,
+    "damage_multiplier": 1.4,
+    "damage_type": "physical",
+    "radius": 38.0,
+    "color": "#4299e1"
+  },
+  "dash": {
+    "id": "dash",
+    "name_cn": "疾影闪烁",
+    "description": "向前迅猛冲刺位移一段距离，获得短暂无敌帧。",
+    "mana_cost": 10,
+    "cooldown": 3.0,
+    "damage_multiplier": 0.0,
+    "damage_type": "physical",
+    "dash_distance": 110.0,
+    "invulnerable_duration": 0.25,
+    "color": "#9f7aea"
+  }
+}

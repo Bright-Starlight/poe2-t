@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://f1a2b3c4d5e6f"]
+
+[ext_resource type="Script" path="res://scripts/ui/rift_panel.gd" id="1_rift_panel"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rift_panel"]
+bg_color = Color(0.08, 0.09, 0.13, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 0.45, 0.55, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+
+[node name="RiftPanel" type="PanelContainer"]
+z_index = 80
+custom_minimum_size = Vector2(380, 260)
+offset_right = 390.0
+offset_bottom = 270.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rift_panel")
+script = ExtResource("1_rift_panel")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="HeaderBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBox/HeaderBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.95, 0.8, 0.35, 1)
+theme_override_font_sizes/font_size = 12
+text = "【异界大秘境挑战 (Atlas Rifts)】"
+
+[node name="CloseBtn" type="Button" parent="VBox/HeaderBox"]
+custom_minimum_size = Vector2(24, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "X"
+
+[node name="HSeparator" type="HSeparator" parent="VBox"]
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RiftsList" type="VBoxContainer" parent="VBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4

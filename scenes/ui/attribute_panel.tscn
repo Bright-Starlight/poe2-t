@@ -1,0 +1,140 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7c8d9e0f1a2b"]
+
+[ext_resource type="Script" path="res://scripts/ui/attribute_panel.gd" id="1_attr_panel"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.08, 0.09, 0.13, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 0.45, 0.55, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+
+[node name="AttributePanel" type="PanelContainer"]
+z_index = 80
+custom_minimum_size = Vector2(280, 200)
+offset_right = 290.0
+offset_bottom = 210.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+script = ExtResource("1_attr_panel")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HeaderBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBox/HeaderBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.8, 0.35, 1)
+theme_override_font_sizes/font_size = 12
+text = "【角色属性加点】"
+
+[node name="UnspentLabel" type="Label" parent="VBox/HeaderBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.95, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 11
+text = "可分配点数: 0"
+horizontal_alignment = 2
+
+[node name="CloseBtn" type="Button" parent="VBox/HeaderBox"]
+custom_minimum_size = Vector2(24, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "X"
+
+[node name="HSeparator1" type="HSeparator" parent="VBox"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 6
+columns = 3
+
+[node name="StrValLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "力量: 0"
+
+[node name="StrDesc" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 1)
+theme_override_font_sizes/font_size = 9
+text = "(每点 +5 生命, +0.6 物伤)"
+
+[node name="AddStrBtn" type="Button" parent="VBox/Grid"]
+custom_minimum_size = Vector2(40, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "+ 加点"
+
+[node name="DexValLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "敏捷: 0"
+
+[node name="DexDesc" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 1)
+theme_override_font_sizes/font_size = 9
+text = "(每点 +1.5 闪避, +攻速/暴击)"
+
+[node name="AddDexBtn" type="Button" parent="VBox/Grid"]
+custom_minimum_size = Vector2(40, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "+ 加点"
+
+[node name="IntValLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "智力: 0"
+
+[node name="IntDesc" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 1)
+theme_override_font_sizes/font_size = 9
+text = "(每点 +4 法力, +元素伤害)"
+
+[node name="AddIntBtn" type="Button" parent="VBox/Grid"]
+custom_minimum_size = Vector2(40, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "+ 加点"
+
+[node name="HSeparator2" type="HSeparator" parent="VBox"]
+layout_mode = 2
+
+[node name="FooterBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="TipLabel" type="Label" parent="VBox/FooterBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.6, 0.65, 0.75, 1)
+theme_override_font_sizes/font_size = 9
+text = "升级可获 3 自由点数"
+
+[node name="ResetBtn" type="Button" parent="VBox/FooterBox"]
+custom_minimum_size = Vector2(80, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "免费洗点重置"

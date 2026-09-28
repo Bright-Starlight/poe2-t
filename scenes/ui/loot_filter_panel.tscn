@@ -1,0 +1,229 @@
+[gd_scene load_steps=3 format=3 uid="uid://g1h2i3j4k5l6m"]
+
+[ext_resource type="Script" path="res://scripts/ui/loot_filter_panel.gd" id="1_filter_panel"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_filter_panel"]
+bg_color = Color(0.08, 0.09, 0.13, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 0.45, 0.55, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+
+[node name="LootFilterPanel" type="PanelContainer"]
+z_index = 80
+custom_minimum_size = Vector2(360, 310)
+offset_right = 370.0
+offset_bottom = 320.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_filter_panel")
+script = ExtResource("1_filter_panel")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="HeaderBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBox/HeaderBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.95, 0.8, 0.35, 1)
+theme_override_font_sizes/font_size = 12
+text = "【装备掉落过滤设置 (Loot Filter)】"
+
+[node name="CloseBtn" type="Button" parent="VBox/HeaderBox"]
+custom_minimum_size = Vector2(24, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "X"
+
+[node name="HSeparator1" type="HSeparator" parent="VBox"]
+layout_mode = 2
+
+[node name="PresetRow" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="PresetLabel" type="Label" parent="VBox/PresetRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.88, 0.95, 1)
+theme_override_font_sizes/font_size = 10
+text = "预设方案:"
+
+[node name="PresetOption" type="OptionButton" parent="VBox/PresetRow"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+
+[node name="RarityHeader" type="Label" parent="VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 1)
+theme_override_font_sizes/font_size = 10
+text = "• 品质保留勾选 (未勾选将自动过滤):"
+
+[node name="RarityBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="NormalCheck" type="CheckBox" parent="VBox/RarityBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 9
+text = "普通 (白)"
+
+[node name="MagicCheck" type="CheckBox" parent="VBox/RarityBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.4, 0.7, 1, 1)
+theme_override_font_sizes/font_size = 9
+text = "魔法 (蓝)"
+
+[node name="RareCheck" type="CheckBox" parent="VBox/RarityBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.95, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 9
+text = "稀有 (黄)"
+
+[node name="LegendaryCheck" type="CheckBox" parent="VBox/RarityBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.95, 0.55, 0.2, 1)
+theme_override_font_sizes/font_size = 9
+text = "暗金 (橙)"
+
+[node name="SlotsHeader" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="SlotsLabel" type="Label" parent="VBox/SlotsHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 1)
+theme_override_font_sizes/font_size = 10
+text = "• 装备部位保留勾选:"
+
+[node name="SlotsActionBox" type="HBoxContainer" parent="VBox/SlotsHeader"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="SelectAllBtn" type="Button" parent="VBox/SlotsHeader/SlotsActionBox"]
+custom_minimum_size = Vector2(36, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "全选"
+
+[node name="SelectNoneBtn" type="Button" parent="VBox/SlotsHeader/SlotsActionBox"]
+custom_minimum_size = Vector2(36, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "全清"
+
+[node name="SlotsGrid" type="GridContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 2
+columns = 4
+
+[node name="WeaponCheck" type="CheckBox" parent="VBox/SlotsGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "武器"
+
+[node name="HelmetCheck" type="CheckBox" parent="VBox/SlotsGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "头盔"
+
+[node name="ChestCheck" type="CheckBox" parent="VBox/SlotsGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "胸甲"
+
+[node name="GlovesCheck" type="CheckBox" parent="VBox/SlotsGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "手套"
+
+[node name="BootsCheck" type="CheckBox" parent="VBox/SlotsGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "鞋子"
+
+[node name="AmuletCheck" type="CheckBox" parent="VBox/SlotsGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "项链"
+
+[node name="RingCheck" type="CheckBox" parent="VBox/SlotsGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "戒指"
+
+[node name="HSeparator2" type="HSeparator" parent="VBox"]
+layout_mode = 2
+
+[node name="AdvanceRow" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="AffixLabel" type="Label" parent="VBox/AdvanceRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.88, 0.95, 1)
+theme_override_font_sizes/font_size = 9
+text = "词缀门槛:"
+
+[node name="MinAffixOption" type="OptionButton" parent="VBox/AdvanceRow"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 9
+
+[node name="ActionLabel" type="Label" parent="VBox/AdvanceRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.88, 0.95, 1)
+theme_override_font_sizes/font_size = 9
+text = "过滤动作:"
+
+[node name="ActionOption" type="OptionButton" parent="VBox/AdvanceRow"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 9
+
+[node name="LogCheck" type="CheckBox" parent="VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 1)
+theme_override_font_sizes/font_size = 9
+text = "在战斗日志中输出过滤与自动出售提示"
+
+[node name="FooterBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ResetBtn" type="Button" parent="VBox/FooterBox"]
+custom_minimum_size = Vector2(80, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "恢复推荐默认"
+
+[node name="Spacer" type="Control" parent="VBox/FooterBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ApplyBtn" type="Button" parent="VBox/FooterBox"]
+custom_minimum_size = Vector2(80, 22)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 9
+text = "保存并生效"

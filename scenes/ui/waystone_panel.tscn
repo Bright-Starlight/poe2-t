@@ -1,0 +1,166 @@
+[gd_scene load_steps=3 format=3 uid="uid://h1i2j3k4l5m6n"]
+
+[ext_resource type="Script" path="res://scripts/ui/waystone_panel.gd" id="1_waystone_panel"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws_panel"]
+bg_color = Color(0.08, 0.09, 0.13, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5, 0.45, 0.65, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+
+[node name="WaystonePanel" type="PanelContainer"]
+z_index = 85
+custom_minimum_size = Vector2(400, 360)
+offset_right = 410.0
+offset_bottom = 370.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ws_panel")
+script = ExtResource("1_waystone_panel")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="HeaderBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBox/HeaderBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.95, 0.8, 0.35, 1)
+theme_override_font_sizes/font_size = 12
+text = "【PoE2 异界引路石与地图8词缀工坊】"
+
+[node name="CloseBtn" type="Button" parent="VBox/HeaderBox"]
+custom_minimum_size = Vector2(24, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "X"
+
+[node name="HSeparator1" type="HSeparator" parent="VBox"]
+layout_mode = 2
+
+[node name="TierRow" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TierLabel" type="Label" parent="VBox/TierRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.88, 0.95, 1)
+theme_override_font_sizes/font_size = 10
+text = "引路石阶级:"
+
+[node name="TierOption" type="OptionButton" parent="VBox/TierRow"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+
+[node name="RollNewBtn" type="Button" parent="VBox/TierRow"]
+custom_minimum_size = Vector2(70, 24)
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "随机新引路石"
+
+[node name="InfoBox" type="VBoxContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="NameRow" type="HBoxContainer" parent="VBox/InfoBox"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBox/InfoBox/NameRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "【8词缀腐化】T3·深渊裂隙 引路石"
+
+[node name="LevelLabel" type="Label" parent="VBox/InfoBox/NameRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 1)
+theme_override_font_sizes/font_size = 9
+text = "Lv.18+ (基础怪数: 30)"
+
+[node name="ImplicitsLabel" type="Label" parent="VBox/InfoBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 9
+text = "• 基底: 物品掉落数量 +50%\n• 基底: 怪物群规模 +25%"
+
+[node name="Scroll" type="ScrollContainer" parent="VBox/InfoBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AffixesLabel" type="Label" parent="VBox/InfoBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 9
+text = "[前缀] 怪物最大生命 +45%
+[前缀] 怪物获得相当于其物理伤害 52% 的额外闪电伤害
+[后缀] 怪物攻击吸血 28%
+[后缀] 怪物所有攻击必定施加【感电】"
+autowrap_mode = 2
+
+[node name="SummaryLabel" type="RichTextLabel" parent="VBox/InfoBox"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "【地图综合加成】 怪物总数: 38 只 (同屏群怪: 4只) | 掉落: +145% | 稀有: +180%"
+fit_content = true
+
+[node name="HSeparator2" type="HSeparator" parent="VBox"]
+layout_mode = 2
+
+[node name="CraftBox" type="VBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="CraftHeader" type="HBoxContainer" parent="VBox/CraftBox"]
+layout_mode = 2
+
+[node name="CraftTitle" type="Label" parent="VBox/CraftBox/CraftHeader"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 10
+text = "• 制图重铸 (点击通货洗引路石词缀，最高8词缀):"
+
+[node name="CraftMsgLabel" type="Label" parent="VBox/CraftBox/CraftHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 9
+horizontal_alignment = 2
+
+[node name="CurrencyGrid" type="GridContainer" parent="VBox/CraftBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 4
+
+[node name="FooterBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TipLabel" type="Label" parent="VBox/FooterBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.6, 0.65, 0.75, 1)
+theme_override_font_sizes/font_size = 9
+text = "肃清全部怪群后唤醒史诗首领"
+
+[node name="ActivateBtn" type="Button" parent="VBox/FooterBox"]
+custom_minimum_size = Vector2(140, 26)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 10
+text = "[ 激活引路石开启征程 ]"

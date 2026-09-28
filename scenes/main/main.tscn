@@ -1,0 +1,463 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8lq0m8y7w2p6"]
+
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://c5q4w7e8r9t1y" path="res://scenes/map/dungeon_map.tscn" id="2_map"]
+[ext_resource type="PackedScene" uid="uid://b1n2m3p4k5l6y" path="res://scenes/player/player.tscn" id="3_player"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hp"]
+bg_color = Color(0.78, 0.18, 0.18, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mp"]
+bg_color = Color(0.18, 0.42, 0.78, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="DungeonMap" parent="World" instance=ExtResource("2_map")]
+
+[node name="Player" parent="World" instance=ExtResource("3_player")]
+position = Vector2(640, 360)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 10.0
+offset_right = 386.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.941176, 0.819608, 0.443137, 1)
+text = "像素暗黑：打宝与挂机 ARPG"
+
+[node name="DebugPanel" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 34.0
+offset_right = 320.0
+offset_bottom = 154.0
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/UI/DebugPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = -8.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VersionLabel" type="Label" parent="CanvasLayer/UI/DebugPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "引擎核心：Godot 4.3"
+
+[node name="PhaseLabel" type="Label" parent="CanvasLayer/UI/DebugPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.482353, 0.752941, 0.941176, 1)
+theme_override_font_sizes/font_size = 11
+text = "当前阶段：Phase 5 (技能系统)"
+
+[node name="FPSLabel" type="Label" parent="CanvasLayer/UI/DebugPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "实时帧率：60 FPS"
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/UI/DebugPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "运行时间：00:00"
+
+[node name="PlayerPosLabel" type="Label" parent="CanvasLayer/UI/DebugPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.9, 0.7, 1)
+theme_override_font_sizes/font_size = 11
+text = "玩家坐标：(640, 360) | 速度: 0"
+
+[node name="MonsterStatusLabel" type="Label" parent="CanvasLayer/UI/DebugPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.65, 0.45, 1)
+theme_override_font_sizes/font_size = 11
+text = "存活怪物：4 只"
+
+[node name="PlayerStatsPanel" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -162.0
+offset_right = 186.0
+offset_bottom = -112.0
+grow_vertical = 0
+
+[node name="HpBar" type="ProgressBar" parent="CanvasLayer/UI/PlayerStatsPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 162.0
+offset_bottom = 24.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_hp")
+max_value = 200.0
+value = 200.0
+show_percentage = false
+
+[node name="HpText" type="Label" parent="CanvasLayer/UI/PlayerStatsPanel/HpBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "HP: 200 / 200"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MpBar" type="ProgressBar" parent="CanvasLayer/UI/PlayerStatsPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 28.0
+offset_right = 162.0
+offset_bottom = 42.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_mp")
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
+[node name="MpText" type="Label" parent="CanvasLayer/UI/PlayerStatsPanel/MpBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 9
+text = "MP: 100 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkillBarPanel" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -54.0
+offset_right = 100.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/UI/SkillBarPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = -6.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="Slot0" type="Panel" parent="CanvasLayer/UI/SkillBarPanel/HBox"]
+custom_minimum_size = Vector2(58, 38)
+layout_mode = 2
+
+[node name="KeyLabel" type="Label" parent="CanvasLayer/UI/SkillBarPanel/HBox/Slot0"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 20.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0.95, 0.8, 0.3, 1)
+theme_override_font_sizes/font_size = 9
+text = "[1]"
+
+[node name="NameLabel" type="Label" parent="CanvasLayer/UI/SkillBarPanel/HBox/Slot0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "火球术"
+horizontal_alignment = 1
+
+[node name="CostLabel" type="Label" parent="CanvasLayer/UI/SkillBarPanel/HBox/Slot0"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -12.0
+offset_right = -3.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.4, 0.7, 1, 1)
+theme_override_font_sizes/font_size = 8
+text = "15 MP"
+horizontal_alignment = 2
+
+[node name="CooldownMask" type="ColorRect" parent="CanvasLayer/UI/SkillBarPanel/HBox/Slot0"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65)
+
+[node name="CooldownLabel" type="Label" parent="CanvasLayer/UI/SkillBarPanel/HBox/Slot0"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.2, 1)
+theme_override_font_sizes/font_size = 11
+text = "1.2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot1" type="Panel" parent="CanvasLayer/UI/SkillBarPanel/HBox"]
+custom_minimum_size = Vector2(58, 38)
+layout_mode = 2
+
+[node name="KeyLabel" type="Label" parent="CanvasLayer/UI/SkillBarPanel/HBox/Slot1"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 20.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0.95, 0.8, 0.3, 1)
+theme_override_font_sizes/font_size = 9
+text = "[2]"
+
+[node name="NameLabel" type="Label" parent="CanvasLayer/UI/SkillBarPanel/HBox/Slot1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "旋风斩"
+horizontal_alignment = 1
+
+[node name="CostLabel" type="Label" parent="CanvasLayer/UI/SkillBarPanel/HBox/Slot1"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -12.0
+offset_right = -3.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.4, 0.7, 1, 1)
+theme_override_font_sizes/font_size = 8
+text = "22 MP"
+horizontal_alignment = 2
+
+[node name="CooldownMask" type="ColorRect" parent="CanvasLayer/UI/SkillBarPanel/HBox/Slot1"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65)
+
+[node name="CooldownLabel" type="Label" parent="CanvasLayer/UI/SkillBarPanel/HBox/Slot1"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.2, 1)
+theme_override_font_sizes/font_size = 11
+text = "2.5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot2" type="Panel" parent="CanvasLayer/UI/SkillBarPanel/HBox"]
+custom_minimum_size = Vector2(58, 38)
+layout_mode = 2
+
+[node name="KeyLabel" type="Label" parent="CanvasLayer/UI/SkillBarPanel/HBox/Slot2"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 20.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0.95, 0.8, 0.3, 1)
+theme_override_font_sizes/font_size = 9
+text = "[3]"
+
+[node name="NameLabel" type="Label" parent="CanvasLayer/UI/SkillBarPanel/HBox/Slot2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "疾影闪"
+horizontal_alignment = 1
+
+[node name="CostLabel" type="Label" parent="CanvasLayer/UI/SkillBarPanel/HBox/Slot2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -12.0
+offset_right = -3.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.4, 0.7, 1, 1)
+theme_override_font_sizes/font_size = 8
+text = "10 MP"
+horizontal_alignment = 2
+
+[node name="CooldownMask" type="ColorRect" parent="CanvasLayer/UI/SkillBarPanel/HBox/Slot2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65)
+
+[node name="CooldownLabel" type="Label" parent="CanvasLayer/UI/SkillBarPanel/HBox/Slot2"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.2, 1)
+theme_override_font_sizes/font_size = 11
+text = "3.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatusPanel" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -104.0
+offset_right = 496.0
+offset_bottom = -14.0
+grow_vertical = 0
+
+[node name="AutoStatusLabel" type="Label" parent="CanvasLayer/UI/StatusPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 190.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 11
+text = "[ 自动战斗：已关闭 ]"
+
+[node name="KeyHintLabel" type="Label" parent="CanvasLayer/UI/StatusPanel"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 6.0
+offset_right = 470.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.694118, 0.72549, 0.776471, 1)
+theme_override_font_sizes/font_size = 11
+text = "操作：[Space] 普攻 | [1]火球 [2]旋风 [3]疾闪"
+
+[node name="LogLabel" type="Label" parent="CanvasLayer/UI/StatusPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 28.0
+offset_right = 470.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.65, 0.7, 0.75, 1)
+theme_override_font_sizes/font_size = 11
+text = "系统运行日志..."
+autowrap_mode = 3

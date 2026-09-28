@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://h1j2k3l4m5n6q"]
+
+[ext_resource type="Script" path="res://scripts/skill/whirlwind_effect.gd" id="1_whirlwind"]
+
+[node name="WhirlwindEffect" type="Node2D"]
+z_index = 22
+script = ExtResource("1_whirlwind")
+
+[node name="SpinNode" type="Node2D" parent="."]
+
+[node name="Blade1" type="Polygon2D" parent="SpinNode"]
+color = Color(0.4, 0.75, 1, 0.75)
+polygon = PackedVector2Array(0, -10, 28, -24, 38, -10, 24, 4, 10, 0)
+
+[node name="Blade2" type="Polygon2D" parent="SpinNode"]
+rotation = 2.0944
+color = Color(0.4, 0.75, 1, 0.75)
+polygon = PackedVector2Array(0, -10, 28, -24, 38, -10, 24, 4, 10, 0)
+
+[node name="Blade3" type="Polygon2D" parent="SpinNode"]
+rotation = 4.18879
+color = Color(0.4, 0.75, 1, 0.75)
+polygon = PackedVector2Array(0, -10, 28, -24, 38, -10, 24, 4, 10, 0)

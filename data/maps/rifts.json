@@ -1,0 +1,57 @@
+{
+  "t1_crypt": {
+    "id": "t1_crypt",
+    "tier": 1,
+    "name_cn": "T1·死者荒冢",
+    "recommended_level": "Lv.5+",
+    "level_scale": 1.4,
+    "monster_pool": ["skeleton_warrior", "slime_green"],
+    "boss_id": "boss_skeleton_king",
+    "affix_desc": "怪物生命+40%，装备掉落率+50%",
+    "drop_rate_mult": 1.5
+  },
+  "t2_volcano": {
+    "id": "t2_volcano",
+    "tier": 2,
+    "name_cn": "T2·炽热熔炉",
+    "recommended_level": "Lv.12+",
+    "level_scale": 1.9,
+    "monster_pool": ["goblin_scout", "skeleton_warrior"],
+    "boss_id": "boss_skeleton_king",
+    "affix_desc": "怪物攻击+30%，通货掉落率+75%",
+    "drop_rate_mult": 1.8
+  },
+  "t3_abyss": {
+    "id": "t3_abyss",
+    "tier": 3,
+    "name_cn": "T3·深渊裂隙",
+    "recommended_level": "Lv.18+",
+    "level_scale": 2.5,
+    "monster_pool": ["goblin_scout", "slime_green"],
+    "boss_id": "boss_magma_overlord",
+    "affix_desc": "怪物生命+80%，怪物攻速+20%，稀有掉落+100%",
+    "drop_rate_mult": 2.2
+  },
+  "t4_inferno": {
+    "id": "t4_inferno",
+    "tier": 4,
+    "name_cn": "T4·炼狱焦土",
+    "recommended_level": "Lv.25+",
+    "level_scale": 3.2,
+    "monster_pool": ["skeleton_warrior", "goblin_scout"],
+    "boss_id": "boss_magma_overlord",
+    "affix_desc": "怪物附带烈焰灼烧，掉落率+150%，极高几率产出崇高石",
+    "drop_rate_mult": 2.6
+  },
+  "t5_void": {
+    "id": "t5_void",
+    "tier": 5,
+    "name_cn": "T5·虚空王座",
+    "recommended_level": "Lv.35+",
+    "level_scale": 4.5,
+    "monster_pool": ["skeleton_warrior", "goblin_scout", "slime_green"],
+    "boss_id": "boss_void_emperor",
+    "affix_desc": "终极秘境：怪物伤害翻倍，必定产出高阶暗金神器与大量顶级通货",
+    "drop_rate_mult": 3.5
+  }
+}

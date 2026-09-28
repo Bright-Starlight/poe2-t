@@ -1,0 +1,490 @@
+[gd_scene load_steps=13 format=3 uid="uid://c6r7t8y9u0i1o"]
+
+[ext_resource type="Script" path="res://scenes/text_ui/text_main.gd" id="1_text_main"]
+[ext_resource type="Script" path="res://scripts/core/text_battle_engine.gd" id="2_text_engine"]
+[ext_resource type="PackedScene" uid="uid://j1k2l3m4n5p6q" path="res://scenes/ui/item_tooltip.tscn" id="3_tooltip"]
+[ext_resource type="PackedScene" uid="uid://b7c8d9e0f1a2b" path="res://scenes/ui/attribute_panel.tscn" id="4_attr_panel"]
+[ext_resource type="PackedScene" uid="uid://d1e2f3a4b5c6d" path="res://scenes/ui/crafting_panel.tscn" id="5_craft_panel"]
+[ext_resource type="PackedScene" uid="uid://e1f2a3b4c5d6e" path="res://scenes/ui/talent_tree_panel.tscn" id="6_talent_panel"]
+[ext_resource type="PackedScene" uid="uid://f1a2b3c4d5e6f" path="res://scenes/ui/rift_panel.tscn" id="7_rift_panel"]
+[ext_resource type="PackedScene" uid="uid://g1h2i3j4k5l6m" path="res://scenes/ui/loot_filter_panel.tscn" id="8_filter_panel"]
+[ext_resource type="PackedScene" uid="uid://h1i2j3k4l5m6n" path="res://scenes/ui/waystone_panel.tscn" id="9_waystone_panel"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hp"]
+bg_color = Color(0.85, 0.2, 0.2, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mp"]
+bg_color = Color(0.2, 0.45, 0.85, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exp"]
+bg_color = Color(0.25, 0.7, 0.4, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_monster_hp"]
+bg_color = Color(0.9, 0.35, 0.15, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rift"]
+bg_color = Color(0.6, 0.3, 0.85, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="TextMain" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_text_main")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06, 0.07, 0.09, 1)
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="LeftPanel" type="PanelContainer" parent="HBox"]
+custom_minimum_size = Vector2(268, 0)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="HBox/LeftPanel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="HeaderLabel" type="Label" parent="HBox/LeftPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.8, 0.35, 1)
+theme_override_font_sizes/font_size = 12
+text = "【角色属性与装备】"
+
+[node name="PlayerHeader" type="HBoxContainer" parent="HBox/LeftPanel/VBox"]
+layout_mode = 2
+
+[node name="LvlLabel" type="Label" parent="HBox/LeftPanel/VBox/PlayerHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "狂战士 Lv.1"
+
+[node name="GoldLabel" type="Label" parent="HBox/LeftPanel/VBox/PlayerHeader"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 11
+text = "金币: 50"
+
+[node name="BuildButtons" type="HBoxContainer" parent="HBox/LeftPanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="AttrOpenBtn" type="Button" parent="HBox/LeftPanel/VBox/BuildButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "[ 属性加点 ]"
+
+[node name="TalentOpenBtn" type="Button" parent="HBox/LeftPanel/VBox/BuildButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "[ 天赋星盘 (+2) ]"
+
+[node name="HpBar" type="ProgressBar" parent="HBox/LeftPanel/VBox"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_hp")
+max_value = 200.0
+value = 200.0
+show_percentage = false
+
+[node name="HpText" type="Label" parent="HBox/LeftPanel/VBox/HpBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "HP: 200 / 200"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MpBar" type="ProgressBar" parent="HBox/LeftPanel/VBox"]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_mp")
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
+[node name="MpText" type="Label" parent="HBox/LeftPanel/VBox/MpBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "MP: 100 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpBar" type="ProgressBar" parent="HBox/LeftPanel/VBox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_exp")
+max_value = 100.0
+value = 10.0
+show_percentage = false
+
+[node name="ExpText" type="Label" parent="HBox/LeftPanel/VBox/ExpBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "EXP: 0 / 100 (0%)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EquipTitle" type="Label" parent="HBox/LeftPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 1)
+theme_override_font_sizes/font_size = 11
+text = "【当前装备 (7部位)】"
+
+[node name="EquipGrid" type="GridContainer" parent="HBox/LeftPanel/VBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="HSeparator" type="HSeparator" parent="HBox/LeftPanel/VBox"]
+layout_mode = 2
+
+[node name="StatsSummaryLabel" type="Label" parent="HBox/LeftPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.85, 0.88, 0.92, 1)
+theme_override_font_sizes/font_size = 10
+text = "【综合DPS】: 45
+• 基础攻击: 30 (攻速: 1.2/s)
+• 暴击几率: 5.0% (倍率: 150%)
+• 物理护甲: 12 | 敏捷闪避: 10
+• 元素伤害: 火+0 冰+0 雷+0"
+
+[node name="CenterPanel" type="PanelContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBox" type="VBoxContainer" parent="HBox/CenterPanel"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="MapProgressBox" type="PanelContainer" parent="HBox/CenterPanel/VBox"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="MapBar" type="ProgressBar" parent="HBox/CenterPanel/VBox/MapProgressBox"]
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_rift")
+max_value = 100.0
+value = 0.0
+show_percentage = false
+
+[node name="MapText" type="Label" parent="HBox/CenterPanel/VBox/MapProgressBox/MapBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "【幽暗密林】 清图进度: 0 / 20 怪物 (剩余: 20)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SquadMonsterBox" type="PanelContainer" parent="HBox/CenterPanel/VBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="SquadList" type="HBoxContainer" parent="HBox/CenterPanel/VBox/SquadMonsterBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="LogDisplay" type="RichTextLabel" parent="HBox/CenterPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+scroll_following = true
+autowrap_mode = 2
+
+[node name="SkillActions" type="HBoxContainer" parent="HBox/CenterPanel/VBox"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="AttackBtn" type="Button" parent="HBox/CenterPanel/VBox/SkillActions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "[普攻] 斩击 [Space]"
+
+[node name="Skill1Btn" type="Button" parent="HBox/CenterPanel/VBox/SkillActions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "[1] 爆裂火球"
+
+[node name="Skill2Btn" type="Button" parent="HBox/CenterPanel/VBox/SkillActions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "[2] 狂风旋斩"
+
+[node name="Skill3Btn" type="Button" parent="HBox/CenterPanel/VBox/SkillActions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "[3] 疾影闪烁"
+
+[node name="RightPanel" type="PanelContainer" parent="HBox"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="HBox/RightPanel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="MapHeader" type="Label" parent="HBox/RightPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.8, 0.35, 1)
+theme_override_font_sizes/font_size = 12
+text = "【探险与挂机】"
+
+[node name="MapOption" type="OptionButton" parent="HBox/RightPanel/VBox"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="StartBattleBtn" type="Button" parent="HBox/RightPanel/VBox"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "[ 停止探索 ]"
+
+[node name="AutoToggleBtn" type="Button" parent="HBox/RightPanel/VBox"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "自动战斗: ON"
+
+[node name="ActionRow" type="HBoxContainer" parent="HBox/RightPanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="IdleSimulateBtn" type="Button" parent="HBox/RightPanel/VBox/ActionRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "[ 模拟挂机 ]"
+
+[node name="RiftOpenBtn" type="Button" parent="HBox/RightPanel/VBox/ActionRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.8, 0.6, 1, 1)
+theme_override_font_sizes/font_size = 10
+text = "[ 异界引路石 ]"
+
+[node name="ActionRow2" type="HBoxContainer" parent="HBox/RightPanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="CraftOpenBtn" type="Button" parent="HBox/RightPanel/VBox/ActionRow2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "[ 打造工坊 ]"
+
+[node name="FilterOpenBtn" type="Button" parent="HBox/RightPanel/VBox/ActionRow2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.95, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 10
+text = "[ 掉落过滤 ]"
+
+[node name="HSeparator2" type="HSeparator" parent="HBox/RightPanel/VBox"]
+layout_mode = 2
+
+[node name="BagHeader" type="HBoxContainer" parent="HBox/RightPanel/VBox"]
+layout_mode = 2
+
+[node name="BagLabel" type="Label" parent="HBox/RightPanel/VBox/BagHeader"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 1)
+theme_override_font_sizes/font_size = 11
+text = "【物品背包】"
+
+[node name="CapacityLabel" type="Label" parent="HBox/RightPanel/VBox/BagHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "0/30"
+horizontal_alignment = 2
+
+[node name="FilterStatusLabel" type="Label" parent="HBox/RightPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.78, 0.95, 1)
+theme_override_font_sizes/font_size = 9
+text = "过滤: 过滤白装与蓝装 [自动出售]"
+
+[node name="SellNormalBtn" type="Button" parent="HBox/RightPanel/VBox"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "一键回收普通白装"
+
+[node name="Scroll" type="ScrollContainer" parent="HBox/RightPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BagList" type="VBoxContainer" parent="HBox/RightPanel/VBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="TextBattleEngine" type="Node" parent="."]
+script = ExtResource("2_text_engine")
+
+[node name="ItemTooltip" parent="." instance=ExtResource("3_tooltip")]
+visible = false
+layout_mode = 0
+offset_left = 220.0
+offset_top = 80.0
+offset_right = 440.0
+offset_bottom = 240.0
+
+[node name="AttributePanel" parent="." instance=ExtResource("4_attr_panel")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -105.0
+offset_right = 145.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CraftingPanel" parent="." instance=ExtResource("5_craft_panel")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -135.0
+offset_right = 185.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TalentTreePanel" parent="." instance=ExtResource("6_talent_panel")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -140.0
+offset_right = 200.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RiftPanel" parent="." instance=ExtResource("7_rift_panel")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -130.0
+offset_right = 190.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LootFilterPanel" parent="." instance=ExtResource("8_filter_panel")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -155.0
+offset_right = 185.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WaystonePanel" parent="." instance=ExtResource("9_waystone_panel")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -175.0
+offset_right = 200.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2

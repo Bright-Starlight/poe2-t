@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://e1f2a3b4c5d6e"]
+
+[ext_resource type="Script" path="res://scripts/ui/talent_tree_panel.gd" id="1_talent_panel"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_talent_panel"]
+bg_color = Color(0.08, 0.09, 0.13, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 0.45, 0.55, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+
+[node name="TalentTreePanel" type="PanelContainer"]
+z_index = 80
+custom_minimum_size = Vector2(400, 280)
+offset_right = 410.0
+offset_bottom = 290.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_talent_panel")
+script = ExtResource("1_talent_panel")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="HeaderBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBox/HeaderBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.8, 0.35, 1)
+theme_override_font_sizes/font_size = 12
+text = "【被动天赋星盘 (Passive Tree)】"
+
+[node name="PointsLabel" type="Label" parent="VBox/HeaderBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.95, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 11
+text = "天赋点数: 0"
+horizontal_alignment = 2
+
+[node name="CloseBtn" type="Button" parent="VBox/HeaderBox"]
+custom_minimum_size = Vector2(24, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "X"
+
+[node name="BranchTabs" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="HSeparator" type="HSeparator" parent="VBox"]
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NodesList" type="VBoxContainer" parent="VBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="FooterBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="TipLabel" type="Label" parent="VBox/FooterBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.6, 0.65, 0.75, 1)
+theme_override_font_sizes/font_size = 9
+text = "每次升级突破获得 1 点星盘天赋"
+
+[node name="ResetBtn" type="Button" parent="VBox/FooterBox"]
+custom_minimum_size = Vector2(80, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "免费洗点重置"

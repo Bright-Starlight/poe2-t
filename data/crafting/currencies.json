@@ -1,0 +1,65 @@
+{
+  "transmutation": {
+    "id": "transmutation",
+    "name_cn": "蜕变石",
+    "rarity_color": "#63b3ed",
+    "target_rarity": "normal",
+    "result_rarity": "magic",
+    "description": "将一件普通白装升级为魔法蓝装，并随机生成 1~2 条词缀。",
+    "drop_weight": 35
+  },
+  "augmentation": {
+    "id": "augmentation",
+    "name_cn": "增幅石",
+    "rarity_color": "#63b3ed",
+    "target_rarity": "magic",
+    "result_rarity": "magic",
+    "description": "为只有 1 条词缀的魔法蓝装增添第 2 条随机词缀。",
+    "drop_weight": 30
+  },
+  "alteration": {
+    "id": "alteration",
+    "name_cn": "改造石",
+    "rarity_color": "#63b3ed",
+    "target_rarity": "magic",
+    "result_rarity": "magic",
+    "description": "重铸一件魔法蓝装，重新随机其所有魔法词缀。",
+    "drop_weight": 25
+  },
+  "regal": {
+    "id": "regal",
+    "name_cn": "富豪石",
+    "rarity_color": "#f6e05e",
+    "target_rarity": "magic",
+    "result_rarity": "rare",
+    "description": "将一件魔法蓝装升级为稀有黄装，保留原有词缀并新增 1 条新词缀。",
+    "drop_weight": 15
+  },
+  "chaos": {
+    "id": "chaos",
+    "name_cn": "混沌石",
+    "rarity_color": "#f6e05e",
+    "target_rarity": "rare",
+    "result_rarity": "rare",
+    "description": "重铸一件稀有黄装，重新随机生成 3~4 条全新的稀有词缀。",
+    "drop_weight": 10
+  },
+  "exalted": {
+    "id": "exalted",
+    "name_cn": "崇高石",
+    "rarity_color": "#ed8936",
+    "target_rarity": "rare",
+    "result_rarity": "rare",
+    "description": "为词缀未满 4 条的稀有黄装增添 1 条强力的随机词缀。",
+    "drop_weight": 4
+  },
+  "scouring": {
+    "id": "scouring",
+    "name_cn": "重铸石",
+    "rarity_color": "#ffffff",
+    "target_rarity": "any",
+    "result_rarity": "normal",
+    "description": "清除一件装备上的所有附加词缀，将其彻底降级还原为普通白装。",
+    "drop_weight": 20
+  }
+}

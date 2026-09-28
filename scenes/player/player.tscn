@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1n2m3p4k5l6y"]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_player"]
+[ext_resource type="Script" path="res://scripts/skill/skill_controller.gd" id="2_skill_ctrl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_feet"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_attack"]
+radius = 20.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_player")
+
+[node name="Shadow" type="ColorRect" parent="."]
+offset_left = -7.0
+offset_top = 2.0
+offset_right = 7.0
+offset_bottom = 7.0
+color = Color(0, 0, 0, 0.3)
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Body" type="ColorRect" parent="Visuals"]
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 5.0
+color = Color(0.22, 0.45, 0.8, 1)
+
+[node name="Head" type="ColorRect" parent="Visuals"]
+offset_left = -5.0
+offset_top = -14.0
+offset_right = 5.0
+offset_bottom = -6.0
+color = Color(0.88, 0.74, 0.58, 1)
+
+[node name="Helmet" type="ColorRect" parent="Visuals"]
+offset_left = -5.0
+offset_top = -16.0
+offset_right = 5.0
+offset_bottom = -12.0
+color = Color(0.75, 0.25, 0.25, 1)
+
+[node name="Eye" type="ColorRect" parent="Visuals"]
+offset_left = 1.0
+offset_top = -11.0
+offset_right = 3.0
+offset_bottom = -9.0
+color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="Weapon" type="ColorRect" parent="Visuals"]
+offset_left = 6.0
+offset_top = -4.0
+offset_right = 10.0
+offset_bottom = 4.0
+color = Color(0.8, 0.8, 0.85, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_feet")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1, 1)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+
+[node name="AttackPivot" type="Node2D" parent="."]
+
+[node name="HitboxArea" type="Area2D" parent="AttackPivot"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackPivot/HitboxArea"]
+position = Vector2(16, 0)
+shape = SubResource("CircleShape2D_attack")
+
+[node name="SkillController" type="Node" parent="."]
+script = ExtResource("2_skill_ctrl")

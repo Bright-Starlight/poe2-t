@@ -1,0 +1,83 @@
+{
+  "slime_green": {
+    "id": "slime_green",
+    "name_cn": "地牢绿史莱姆",
+    "max_hp": 80,
+    "move_speed": 65.0,
+    "attack_damage": 8,
+    "armor": 4,
+    "evasion": 4,
+    "exp_reward": 15,
+    "gold_reward_min": 2,
+    "gold_reward_max": 6
+  },
+  "skeleton_warrior": {
+    "id": "skeleton_warrior",
+    "name_cn": "骷髅近卫",
+    "max_hp": 120,
+    "move_speed": 95.0,
+    "attack_damage": 14,
+    "armor": 8,
+    "evasion": 6,
+    "exp_reward": 25,
+    "gold_reward_min": 5,
+    "gold_reward_max": 12
+  },
+  "goblin_scout": {
+    "id": "goblin_scout",
+    "name_cn": "哥布林潜行者",
+    "max_hp": 65,
+    "move_speed": 125.0,
+    "attack_damage": 11,
+    "armor": 3,
+    "evasion": 15,
+    "exp_reward": 20,
+    "gold_reward_min": 8,
+    "gold_reward_max": 18
+  },
+  "boss_skeleton_king": {
+    "id": "boss_skeleton_king",
+    "name_cn": "死灵骷髅王",
+    "is_boss": true,
+    "max_hp": 850,
+    "move_speed": 80.0,
+    "attack_damage": 32,
+    "armor": 18,
+    "evasion": 8,
+    "attack_speed": 0.85,
+    "exp_reward": 350,
+    "gold_reward_min": 120,
+    "gold_reward_max": 280,
+    "skills": ["幽冥骨刺", "死灵护盾"]
+  },
+  "boss_magma_overlord": {
+    "id": "boss_magma_overlord",
+    "name_cn": "熔岩暴君",
+    "is_boss": true,
+    "max_hp": 1850,
+    "move_speed": 85.0,
+    "attack_damage": 55,
+    "armor": 30,
+    "evasion": 12,
+    "attack_speed": 0.95,
+    "exp_reward": 800,
+    "gold_reward_min": 300,
+    "gold_reward_max": 650,
+    "skills": ["烈焰天降", "熔岩震击"]
+  },
+  "boss_void_emperor": {
+    "id": "boss_void_emperor",
+    "name_cn": "虚空领主",
+    "is_boss": true,
+    "max_hp": 4200,
+    "move_speed": 90.0,
+    "attack_damage": 95,
+    "armor": 50,
+    "evasion": 20,
+    "attack_speed": 1.1,
+    "exp_reward": 2500,
+    "gold_reward_min": 1000,
+    "gold_reward_max": 2500,
+    "skills": ["虚空撕裂", "黑洞吞噬", "毁灭惩戒"]
+  }
+}

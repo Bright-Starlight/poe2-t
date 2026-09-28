@@ -1,0 +1,29 @@
+{
+  "forest_1": {
+    "id": "forest_1",
+    "name_cn": "幽暗密林",
+    "recommended_level": "Lv.1 ~ Lv.4",
+    "description": "潮湿阴暗的远古树林，潜伏着剧毒史莱姆与哥布林斥候。",
+    "monster_pool": ["slime_green", "goblin_scout"],
+    "level_scale": 1.0,
+    "drop_rate_mult": 1.0
+  },
+  "crypt_2": {
+    "id": "crypt_2",
+    "name_cn": "亡者古墓",
+    "recommended_level": "Lv.5 ~ Lv.8",
+    "description": "废弃千年的幽冥地宫，游荡着执着重剑的骷髅近卫守卫。",
+    "monster_pool": ["skeleton_warrior", "goblin_scout"],
+    "level_scale": 1.5,
+    "drop_rate_mult": 1.3
+  },
+  "lava_3": {
+    "id": "lava_3",
+    "name_cn": "熔岩深渊",
+    "recommended_level": "Lv.9 ~ Lv.15",
+    "description": "地底烈焰翻滚的灼热深渊，怪物狂暴且极度危险，爆率极高。",
+    "monster_pool": ["skeleton_warrior", "slime_green", "goblin_scout"],
+    "level_scale": 2.2,
+    "drop_rate_mult": 1.8
+  }
+}

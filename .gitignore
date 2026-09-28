@@ -1,0 +1,12 @@
+# Godot 4.x .gitignore
+.godot/
+*.translation
+.import/
+export_presets.cfg
+*.tmp
+
+# Python & Test Caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/

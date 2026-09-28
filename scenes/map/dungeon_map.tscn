@@ -1,0 +1,150 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5q4w7e8r9t1y"]
+
+[ext_resource type="Script" path="res://scenes/map/dungeon_map.gd" id="1_map"]
+[ext_resource type="PackedScene" uid="uid://d1e2f3g4h5j6k" path="res://scenes/monster/monster.tscn" id="2_monster"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_top"]
+size = Vector2(1280, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bottom"]
+size = Vector2(1280, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_left"]
+size = Vector2(32, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pillar"]
+size = Vector2(48, 48)
+
+[node name="DungeonMap" type="Node2D"]
+script = ExtResource("1_map")
+
+[node name="Floor" type="ColorRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.09, 0.11, 0.14, 1)
+
+[node name="FloorGrid" type="Node2D" parent="."]
+
+[node name="TileGridPattern1" type="ColorRect" parent="FloorGrid"]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 1248.0
+offset_bottom = 688.0
+color = Color(0.12, 0.14, 0.18, 1)
+
+[node name="TileDeco1" type="ColorRect" parent="FloorGrid"]
+offset_left = 200.0
+offset_top = 160.0
+offset_right = 440.0
+offset_bottom = 280.0
+color = Color(0.14, 0.16, 0.21, 1)
+
+[node name="TileDeco2" type="ColorRect" parent="FloorGrid"]
+offset_left = 840.0
+offset_top = 440.0
+offset_right = 1080.0
+offset_bottom = 560.0
+color = Color(0.14, 0.16, 0.21, 1)
+
+[node name="TileDeco3" type="ColorRect" parent="FloorGrid"]
+offset_left = 840.0
+offset_top = 160.0
+offset_right = 1080.0
+offset_bottom = 280.0
+color = Color(0.14, 0.16, 0.21, 1)
+
+[node name="TileDeco4" type="ColorRect" parent="FloorGrid"]
+offset_left = 200.0
+offset_top = 440.0
+offset_right = 440.0
+offset_bottom = 560.0
+color = Color(0.14, 0.16, 0.21, 1)
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="TopWallVisual" type="ColorRect" parent="Walls"]
+offset_right = 1280.0
+offset_bottom = 32.0
+color = Color(0.18, 0.22, 0.28, 1)
+
+[node name="TopWallCol" type="CollisionShape2D" parent="Walls"]
+position = Vector2(640, 16)
+shape = SubResource("RectangleShape2D_top")
+
+[node name="BottomWallVisual" type="ColorRect" parent="Walls"]
+offset_top = 688.0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.18, 0.22, 0.28, 1)
+
+[node name="BottomWallCol" type="CollisionShape2D" parent="Walls"]
+position = Vector2(640, 704)
+shape = SubResource("RectangleShape2D_bottom")
+
+[node name="LeftWallVisual" type="ColorRect" parent="Walls"]
+offset_right = 32.0
+offset_bottom = 720.0
+color = Color(0.18, 0.22, 0.28, 1)
+
+[node name="LeftWallCol" type="CollisionShape2D" parent="Walls"]
+position = Vector2(16, 360)
+shape = SubResource("RectangleShape2D_left")
+
+[node name="RightWallVisual" type="ColorRect" parent="Walls"]
+offset_left = 1248.0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.18, 0.22, 0.28, 1)
+
+[node name="RightWallCol" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1264, 360)
+shape = SubResource("RectangleShape2D_left")
+
+[node name="Obstacles" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Pillar1Visual" type="ColorRect" parent="Obstacles"]
+offset_left = 320.0
+offset_top = 336.0
+offset_right = 368.0
+offset_bottom = 384.0
+color = Color(0.24, 0.28, 0.36, 1)
+
+[node name="Pillar1Col" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(344, 360)
+shape = SubResource("RectangleShape2D_pillar")
+
+[node name="Pillar2Visual" type="ColorRect" parent="Obstacles"]
+offset_left = 912.0
+offset_top = 336.0
+offset_right = 960.0
+offset_bottom = 384.0
+color = Color(0.24, 0.28, 0.36, 1)
+
+[node name="Pillar2Col" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(936, 360)
+shape = SubResource("RectangleShape2D_pillar")
+
+[node name="Monsters" type="Node2D" parent="."]
+
+[node name="MonsterSlime1" parent="Monsters" instance=ExtResource("2_monster")]
+position = Vector2(420, 220)
+monster_id = "slime_green"
+
+[node name="MonsterSkeleton" parent="Monsters" instance=ExtResource("2_monster")]
+position = Vector2(960, 220)
+monster_id = "skeleton_warrior"
+
+[node name="MonsterGoblin" parent="Monsters" instance=ExtResource("2_monster")]
+position = Vector2(880, 520)
+monster_id = "goblin_scout"
+
+[node name="MonsterSlime2" parent="Monsters" instance=ExtResource("2_monster")]
+position = Vector2(360, 520)
+monster_id = "slime_green"

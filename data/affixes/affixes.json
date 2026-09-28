@@ -1,0 +1,751 @@
+{
+  "prefixes": [
+    {
+      "family": "flat_life",
+      "stat": "max_hp",
+      "stat_name_cn": "最大生命",
+      "slots": ["helmet", "chest", "gloves", "boots", "amulet", "ring"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "titan",
+          "name_cn": "泰坦之",
+          "required_level": 45,
+          "min_value": 110,
+          "max_value": 140,
+          "weight": 50
+        },
+        {
+          "tier": 2,
+          "id": "giant",
+          "name_cn": "巨人之",
+          "required_level": 30,
+          "min_value": 80,
+          "max_value": 109,
+          "weight": 75
+        },
+        {
+          "tier": 3,
+          "id": "mammoth",
+          "name_cn": "猛犸之",
+          "required_level": 18,
+          "min_value": 55,
+          "max_value": 79,
+          "weight": 100
+        },
+        {
+          "tier": 4,
+          "id": "stout",
+          "name_cn": "坚固之",
+          "required_level": 8,
+          "min_value": 35,
+          "max_value": 54,
+          "weight": 120
+        },
+        {
+          "tier": 5,
+          "id": "healthy",
+          "name_cn": "健壮之",
+          "required_level": 1,
+          "min_value": 15,
+          "max_value": 34,
+          "weight": 150
+        }
+      ]
+    },
+    {
+      "family": "flat_physical_damage",
+      "stat": "attack_damage",
+      "stat_name_cn": "基础攻击",
+      "slots": ["weapon", "gloves", "ring"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "tyrant",
+          "name_cn": "暴君之",
+          "required_level": 45,
+          "min_value": 25,
+          "max_value": 35,
+          "weight": 50
+        },
+        {
+          "tier": 2,
+          "id": "cruel",
+          "name_cn": "残忍之",
+          "required_level": 30,
+          "min_value": 18,
+          "max_value": 24,
+          "weight": 75
+        },
+        {
+          "tier": 3,
+          "id": "serrated",
+          "name_cn": "锯齿之",
+          "required_level": 18,
+          "min_value": 12,
+          "max_value": 17,
+          "weight": 100
+        },
+        {
+          "tier": 4,
+          "id": "sharp",
+          "name_cn": "锋利之",
+          "required_level": 8,
+          "min_value": 7,
+          "max_value": 11,
+          "weight": 120
+        },
+        {
+          "tier": 5,
+          "id": "honed",
+          "name_cn": "尖锐之",
+          "required_level": 1,
+          "min_value": 3,
+          "max_value": 6,
+          "weight": 150
+        }
+      ]
+    },
+    {
+      "family": "percent_physical_damage",
+      "stat": "attack_damage_pct",
+      "stat_name_cn": "物理攻击",
+      "is_percentage": true,
+      "slots": ["weapon"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "conqueror",
+          "name_cn": "征服者之",
+          "required_level": 45,
+          "min_value": 0.35,
+          "max_value": 0.50,
+          "weight": 40
+        },
+        {
+          "tier": 2,
+          "id": "warlord",
+          "name_cn": "武圣之",
+          "required_level": 25,
+          "min_value": 0.25,
+          "max_value": 0.34,
+          "weight": 70
+        },
+        {
+          "tier": 3,
+          "id": "elite",
+          "name_cn": "精锐之",
+          "required_level": 10,
+          "min_value": 0.15,
+          "max_value": 0.24,
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "family": "flat_fire_damage",
+      "stat": "fire_damage",
+      "stat_name_cn": "火焰伤害",
+      "slots": ["weapon", "amulet", "ring"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "infernal",
+          "name_cn": "狱火之",
+          "required_level": 40,
+          "min_value": 25,
+          "max_value": 40,
+          "weight": 50
+        },
+        {
+          "tier": 2,
+          "id": "flaming",
+          "name_cn": "烈焰之",
+          "required_level": 20,
+          "min_value": 16,
+          "max_value": 24,
+          "weight": 80
+        },
+        {
+          "tier": 3,
+          "id": "scorching",
+          "name_cn": "焦灼之",
+          "required_level": 1,
+          "min_value": 8,
+          "max_value": 15,
+          "weight": 120
+        }
+      ]
+    },
+    {
+      "family": "flat_cold_damage",
+      "stat": "cold_damage",
+      "stat_name_cn": "冰霜伤害",
+      "slots": ["weapon", "amulet", "ring"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "glacial",
+          "name_cn": "极寒之",
+          "required_level": 40,
+          "min_value": 25,
+          "max_value": 40,
+          "weight": 50
+        },
+        {
+          "tier": 2,
+          "id": "frost",
+          "name_cn": "冰霜之",
+          "required_level": 20,
+          "min_value": 16,
+          "max_value": 24,
+          "weight": 80
+        },
+        {
+          "tier": 3,
+          "id": "bitter",
+          "name_cn": "苦寒之",
+          "required_level": 1,
+          "min_value": 8,
+          "max_value": 15,
+          "weight": 120
+        }
+      ]
+    },
+    {
+      "family": "flat_lightning_damage",
+      "stat": "lightning_damage",
+      "stat_name_cn": "闪电伤害",
+      "slots": ["weapon", "amulet", "ring"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "cataclysm",
+          "name_cn": "天劫之",
+          "required_level": 40,
+          "min_value": 30,
+          "max_value": 48,
+          "weight": 50
+        },
+        {
+          "tier": 2,
+          "id": "thunder",
+          "name_cn": "雷霆之",
+          "required_level": 20,
+          "min_value": 18,
+          "max_value": 29,
+          "weight": 80
+        },
+        {
+          "tier": 3,
+          "id": "sparking",
+          "name_cn": "火花之",
+          "required_level": 1,
+          "min_value": 10,
+          "max_value": 17,
+          "weight": 120
+        }
+      ]
+    },
+    {
+      "family": "flat_armor",
+      "stat": "armor",
+      "stat_name_cn": "护甲值",
+      "slots": ["helmet", "chest", "gloves", "boots"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "divine_iron",
+          "name_cn": "圣甲之",
+          "required_level": 40,
+          "min_value": 35,
+          "max_value": 50,
+          "weight": 60
+        },
+        {
+          "tier": 2,
+          "id": "armored",
+          "name_cn": "坚甲之",
+          "required_level": 20,
+          "min_value": 20,
+          "max_value": 34,
+          "weight": 90
+        },
+        {
+          "tier": 3,
+          "id": "thick_plate",
+          "name_cn": "厚甲之",
+          "required_level": 1,
+          "min_value": 8,
+          "max_value": 19,
+          "weight": 130
+        }
+      ]
+    },
+    {
+      "family": "flat_evasion",
+      "stat": "evasion",
+      "stat_name_cn": "闪避值",
+      "slots": ["helmet", "chest", "gloves", "boots"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "phantom_step",
+          "name_cn": "迷踪之",
+          "required_level": 40,
+          "min_value": 40,
+          "max_value": 60,
+          "weight": 60
+        },
+        {
+          "tier": 2,
+          "id": "swift_wing",
+          "name_cn": "飞燕之",
+          "required_level": 20,
+          "min_value": 22,
+          "max_value": 39,
+          "weight": 90
+        },
+        {
+          "tier": 3,
+          "id": "nimble",
+          "name_cn": "轻捷之",
+          "required_level": 1,
+          "min_value": 10,
+          "max_value": 21,
+          "weight": 130
+        }
+      ]
+    },
+    {
+      "family": "flat_mana",
+      "stat": "max_mp",
+      "stat_name_cn": "最大法力",
+      "slots": ["helmet", "amulet", "ring"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "archmage",
+          "name_cn": "大法师之",
+          "required_level": 35,
+          "min_value": 50,
+          "max_value": 80,
+          "weight": 60
+        },
+        {
+          "tier": 2,
+          "id": "scholar",
+          "name_cn": "学者之",
+          "required_level": 15,
+          "min_value": 28,
+          "max_value": 49,
+          "weight": 90
+        },
+        {
+          "tier": 3,
+          "id": "adept",
+          "name_cn": "见习之",
+          "required_level": 1,
+          "min_value": 12,
+          "max_value": 27,
+          "weight": 120
+        }
+      ]
+    }
+  ],
+  "suffixes": [
+    {
+      "family": "increased_attack_speed",
+      "stat": "attack_speed",
+      "stat_name_cn": "攻击速度",
+      "is_percentage": true,
+      "slots": ["weapon", "gloves", "ring"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "of_zeal",
+          "name_cn": "之狂热",
+          "required_level": 45,
+          "min_value": 0.18,
+          "max_value": 0.25,
+          "weight": 50
+        },
+        {
+          "tier": 2,
+          "id": "of_gale",
+          "name_cn": "之狂风",
+          "required_level": 25,
+          "min_value": 0.12,
+          "max_value": 0.17,
+          "weight": 80
+        },
+        {
+          "tier": 3,
+          "id": "of_swiftness",
+          "name_cn": "之疾速",
+          "required_level": 1,
+          "min_value": 0.06,
+          "max_value": 0.11,
+          "weight": 120
+        }
+      ]
+    },
+    {
+      "family": "increased_crit_rate",
+      "stat": "crit_rate",
+      "stat_name_cn": "暴击几率",
+      "is_percentage": true,
+      "slots": ["weapon", "gloves", "amulet", "ring"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "of_extinction",
+          "name_cn": "之灭绝",
+          "required_level": 45,
+          "min_value": 0.08,
+          "max_value": 0.12,
+          "weight": 50
+        },
+        {
+          "tier": 2,
+          "id": "of_lethality",
+          "name_cn": "之刺杀",
+          "required_level": 25,
+          "min_value": 0.05,
+          "max_value": 0.07,
+          "weight": 80
+        },
+        {
+          "tier": 3,
+          "id": "of_precision",
+          "name_cn": "之精准",
+          "required_level": 1,
+          "min_value": 0.02,
+          "max_value": 0.04,
+          "weight": 120
+        }
+      ]
+    },
+    {
+      "family": "increased_crit_damage",
+      "stat": "crit_damage",
+      "stat_name_cn": "暴击伤害",
+      "is_percentage": true,
+      "slots": ["weapon", "amulet"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "of_pulverizing",
+          "name_cn": "之粉碎",
+          "required_level": 45,
+          "min_value": 0.40,
+          "max_value": 0.60,
+          "weight": 50
+        },
+        {
+          "tier": 2,
+          "id": "of_destruction",
+          "name_cn": "之绝灭",
+          "required_level": 25,
+          "min_value": 0.25,
+          "max_value": 0.39,
+          "weight": 80
+        },
+        {
+          "tier": 3,
+          "id": "of_wounding",
+          "name_cn": "之重创",
+          "required_level": 1,
+          "min_value": 0.12,
+          "max_value": 0.24,
+          "weight": 120
+        }
+      ]
+    },
+    {
+      "family": "increased_movement_speed",
+      "stat": "move_speed_pct",
+      "stat_name_cn": "移动速度",
+      "is_percentage": true,
+      "slots": ["boots"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "of_cheetah",
+          "name_cn": "之猎豹",
+          "required_level": 40,
+          "min_value": 0.18,
+          "max_value": 0.25,
+          "weight": 50
+        },
+        {
+          "tier": 2,
+          "id": "of_stride",
+          "name_cn": "之疾步",
+          "required_level": 20,
+          "min_value": 0.12,
+          "max_value": 0.17,
+          "weight": 80
+        },
+        {
+          "tier": 3,
+          "id": "of_pacing",
+          "name_cn": "之轻步",
+          "required_level": 1,
+          "min_value": 0.06,
+          "max_value": 0.11,
+          "weight": 120
+        }
+      ]
+    },
+    {
+      "family": "fire_resistance",
+      "stat": "fire_res",
+      "stat_name_cn": "火焰抗性",
+      "is_percentage": true,
+      "slots": ["helmet", "chest", "gloves", "boots", "amulet", "ring"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "of_magma",
+          "name_cn": "之熔火",
+          "required_level": 40,
+          "min_value": 0.32,
+          "max_value": 0.45,
+          "weight": 60
+        },
+        {
+          "tier": 2,
+          "id": "of_warmth",
+          "name_cn": "之炽热",
+          "required_level": 20,
+          "min_value": 0.20,
+          "max_value": 0.31,
+          "weight": 90
+        },
+        {
+          "tier": 3,
+          "id": "of_ember",
+          "name_cn": "之余烬",
+          "required_level": 1,
+          "min_value": 0.10,
+          "max_value": 0.19,
+          "weight": 130
+        }
+      ]
+    },
+    {
+      "family": "cold_resistance",
+      "stat": "cold_res",
+      "stat_name_cn": "冰霜抗性",
+      "is_percentage": true,
+      "slots": ["helmet", "chest", "gloves", "boots", "amulet", "ring"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "of_blizzard",
+          "name_cn": "之严冬",
+          "required_level": 40,
+          "min_value": 0.32,
+          "max_value": 0.45,
+          "weight": 60
+        },
+        {
+          "tier": 2,
+          "id": "of_frost",
+          "name_cn": "之霜冻",
+          "required_level": 20,
+          "min_value": 0.20,
+          "max_value": 0.31,
+          "weight": 90
+        },
+        {
+          "tier": 3,
+          "id": "of_chill",
+          "name_cn": "之清凉",
+          "required_level": 1,
+          "min_value": 0.10,
+          "max_value": 0.19,
+          "weight": 130
+        }
+      ]
+    },
+    {
+      "family": "lightning_resistance",
+      "stat": "lightning_res",
+      "stat_name_cn": "闪电抗性",
+      "is_percentage": true,
+      "slots": ["helmet", "chest", "gloves", "boots", "amulet", "ring"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "of_tempest",
+          "name_cn": "之雷暴",
+          "required_level": 40,
+          "min_value": 0.32,
+          "max_value": 0.45,
+          "weight": 60
+        },
+        {
+          "tier": 2,
+          "id": "of_storm",
+          "name_cn": "之风暴",
+          "required_level": 20,
+          "min_value": 0.20,
+          "max_value": 0.31,
+          "weight": 90
+        },
+        {
+          "tier": 3,
+          "id": "of_static",
+          "name_cn": "之感电",
+          "required_level": 1,
+          "min_value": 0.10,
+          "max_value": 0.19,
+          "weight": 130
+        }
+      ]
+    },
+    {
+      "family": "all_resistances",
+      "stat": "all_res",
+      "stat_name_cn": "全元素抗性",
+      "is_percentage": true,
+      "slots": ["amulet", "ring", "chest"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "of_celestial",
+          "name_cn": "之天界庇护",
+          "required_level": 45,
+          "min_value": 0.16,
+          "max_value": 0.24,
+          "weight": 40
+        },
+        {
+          "tier": 2,
+          "id": "of_harmony",
+          "name_cn": "之元素调和",
+          "required_level": 25,
+          "min_value": 0.10,
+          "max_value": 0.15,
+          "weight": 70
+        },
+        {
+          "tier": 3,
+          "id": "of_prism",
+          "name_cn": "之棱镜",
+          "required_level": 1,
+          "min_value": 0.05,
+          "max_value": 0.09,
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "family": "attribute_strength",
+      "stat": "strength",
+      "stat_name_cn": "力量",
+      "slots": ["gloves", "ring", "amulet"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "of_titan_strength",
+          "name_cn": "之泰坦蛮力",
+          "required_level": 40,
+          "min_value": 25,
+          "max_value": 35,
+          "weight": 60
+        },
+        {
+          "tier": 2,
+          "id": "of_brawn",
+          "name_cn": "之巨力",
+          "required_level": 20,
+          "min_value": 15,
+          "max_value": 24,
+          "weight": 90
+        },
+        {
+          "tier": 3,
+          "id": "of_stoutness",
+          "name_cn": "之强健",
+          "required_level": 1,
+          "min_value": 6,
+          "max_value": 14,
+          "weight": 130
+        }
+      ]
+    },
+    {
+      "family": "attribute_dexterity",
+      "stat": "dexterity",
+      "stat_name_cn": "敏捷",
+      "slots": ["boots", "ring", "amulet"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "of_thousand_forms",
+          "name_cn": "之千面灵巧",
+          "required_level": 40,
+          "min_value": 25,
+          "max_value": 35,
+          "weight": 60
+        },
+        {
+          "tier": 2,
+          "id": "of_grace",
+          "name_cn": "之灵敏",
+          "required_level": 20,
+          "min_value": 15,
+          "max_value": 24,
+          "weight": 90
+        },
+        {
+          "tier": 3,
+          "id": "of_agility",
+          "name_cn": "之敏捷",
+          "required_level": 1,
+          "min_value": 6,
+          "max_value": 14,
+          "weight": 130
+        }
+      ]
+    },
+    {
+      "family": "attribute_intelligence",
+      "stat": "intelligence",
+      "stat_name_cn": "智力",
+      "slots": ["helmet", "ring", "amulet"],
+      "tiers": [
+        {
+          "tier": 1,
+          "id": "of_high_sage",
+          "name_cn": "之至高贤者",
+          "required_level": 40,
+          "min_value": 25,
+          "max_value": 35,
+          "weight": 60
+        },
+        {
+          "tier": 2,
+          "id": "of_intellect",
+          "name_cn": "之睿智",
+          "required_level": 20,
+          "min_value": 15,
+          "max_value": 24,
+          "weight": 90
+        },
+        {
+          "tier": 3,
+          "id": "of_cleverness",
+          "name_cn": "之聪颖",
+          "required_level": 1,
+          "min_value": 6,
+          "max_value": 14,
+          "weight": 130
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <!-- Ring Band Outer -->
+  <circle cx="16" cy="19" r="10" stroke="#FFFFFF" stroke-width="3"/>
+  <!-- Ring Band Inner (Hole) -->
+  <circle cx="16" cy="19" r="7" fill="#1A202C"/>
+  <!-- Crown / Setting Prongs -->
+  <polygon points="12,12 20,12 22,8 10,8" fill="#FFFFFF"/>
+  <!-- Gemstone Top -->
+  <polygon points="16,3 23,8 9,8" fill="#FFFFFF"/>
+  <!-- Gem Facet Cut -->
+  <polygon points="16,4 20,8 12,8" fill="#CBD5E1"/>
+</svg>

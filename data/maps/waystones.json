@@ -1,0 +1,142 @@
+{
+  "t1_waystone": {
+    "id": "t1_waystone",
+    "tier": 1,
+    "name_cn": "T1·死者荒冢 引路石",
+    "recommended_level": "Lv.5 ~ Lv.10",
+    "level_scale": 1.4,
+    "base_monsters_count": 22,
+    "base_pack_size": 2,
+    "monster_pool": ["skeleton_warrior", "slime_green"],
+    "boss_id": "boss_skeleton_king",
+    "base_implicits": [
+      {
+        "stat": "item_quant_pct",
+        "value": 0.25,
+        "desc": "基底: 物品掉落数量 +25%"
+      },
+      {
+        "stat": "pack_size_pct",
+        "value": 0.15,
+        "desc": "基底: 怪物群规模 +15%"
+      }
+    ]
+  },
+  "t2_waystone": {
+    "id": "t2_waystone",
+    "tier": 2,
+    "name_cn": "T2·炽热熔炉 引路石",
+    "recommended_level": "Lv.11 ~ Lv.16",
+    "level_scale": 1.9,
+    "base_monsters_count": 26,
+    "base_pack_size": 3,
+    "monster_pool": ["goblin_scout", "skeleton_warrior"],
+    "boss_id": "boss_skeleton_king",
+    "base_implicits": [
+      {
+        "stat": "item_quant_pct",
+        "value": 0.35,
+        "desc": "基底: 物品掉落数量 +35%"
+      },
+      {
+        "stat": "item_rarity_pct",
+        "value": 0.40,
+        "desc": "基底: 物品掉落稀有度 +40%"
+      },
+      {
+        "stat": "currency_mult_pct",
+        "value": 0.30,
+        "desc": "基底: 打造通货掉落几率 +30%"
+      }
+    ]
+  },
+  "t3_waystone": {
+    "id": "t3_waystone",
+    "tier": 3,
+    "name_cn": "T3·深渊裂隙 引路石",
+    "recommended_level": "Lv.17 ~ Lv.23",
+    "level_scale": 2.5,
+    "base_monsters_count": 30,
+    "base_pack_size": 3,
+    "monster_pool": ["goblin_scout", "slime_green", "skeleton_warrior"],
+    "boss_id": "boss_magma_overlord",
+    "base_implicits": [
+      {
+        "stat": "item_quant_pct",
+        "value": 0.50,
+        "desc": "基底: 物品掉落数量 +50%"
+      },
+      {
+        "stat": "item_rarity_pct",
+        "value": 0.60,
+        "desc": "基底: 物品掉落稀有度 +60%"
+      },
+      {
+        "stat": "pack_size_pct",
+        "value": 0.25,
+        "desc": "基底: 怪物群规模 +25%"
+      }
+    ]
+  },
+  "t4_waystone": {
+    "id": "t4_waystone",
+    "tier": 4,
+    "name_cn": "T4·炼狱焦土 引路石",
+    "recommended_level": "Lv.24 ~ Lv.32",
+    "level_scale": 3.4,
+    "base_monsters_count": 35,
+    "base_pack_size": 4,
+    "monster_pool": ["skeleton_warrior", "goblin_scout"],
+    "boss_id": "boss_magma_overlord",
+    "base_implicits": [
+      {
+        "stat": "item_quant_pct",
+        "value": 0.70,
+        "desc": "基底: 物品掉落数量 +70%"
+      },
+      {
+        "stat": "item_rarity_pct",
+        "value": 0.85,
+        "desc": "基底: 物品掉落稀有度 +85%"
+      },
+      {
+        "stat": "currency_mult_pct",
+        "value": 0.60,
+        "desc": "基底: 崇高与混沌通货掉率大幅提升 +60%"
+      }
+    ]
+  },
+  "t5_waystone": {
+    "id": "t5_waystone",
+    "tier": 5,
+    "name_cn": "T5·虚空王座 引路石",
+    "recommended_level": "Lv.33 ~ Lv.45+",
+    "level_scale": 4.6,
+    "base_monsters_count": 42,
+    "base_pack_size": 4,
+    "monster_pool": ["skeleton_warrior", "goblin_scout", "slime_green"],
+    "boss_id": "boss_void_emperor",
+    "base_implicits": [
+      {
+        "stat": "item_quant_pct",
+        "value": 1.00,
+        "desc": "基底: 物品掉落数量 +100%"
+      },
+      {
+        "stat": "item_rarity_pct",
+        "value": 1.20,
+        "desc": "基底: 物品掉落稀有度 +120%"
+      },
+      {
+        "stat": "pack_size_pct",
+        "value": 0.40,
+        "desc": "基底: 终极怪物群规模 +40%"
+      },
+      {
+        "stat": "unique_drop_mult_pct",
+        "value": 0.80,
+        "desc": "基底: 异界首领暗金神器掉率 +80%"
+      }
+    ]
+  }
+}

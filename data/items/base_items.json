@@ -1,0 +1,142 @@
+{
+  "rusty_iron_sword": {
+    "id": "rusty_iron_sword",
+    "name_cn": "生锈铁剑",
+    "slot": "weapon",
+    "required_level": 1,
+    "base_stats": {
+      "attack_damage": 12.0,
+      "attack_speed": 1.2
+    }
+  },
+  "steel_broadsword": {
+    "id": "steel_broadsword",
+    "name_cn": "精钢阔剑",
+    "slot": "weapon",
+    "required_level": 5,
+    "base_stats": {
+      "attack_damage": 28.0,
+      "attack_speed": 1.3
+    }
+  },
+  "leather_cap": {
+    "id": "leather_cap",
+    "name_cn": "粗糙皮帽",
+    "slot": "helmet",
+    "required_level": 1,
+    "base_stats": {
+      "max_hp": 25.0,
+      "armor": 4.0
+    }
+  },
+  "iron_helmet": {
+    "id": "iron_helmet",
+    "name_cn": "重装铁盔",
+    "slot": "helmet",
+    "required_level": 5,
+    "base_stats": {
+      "max_hp": 60.0,
+      "armor": 12.0
+    }
+  },
+  "linen_tunic": {
+    "id": "linen_tunic",
+    "name_cn": "麻布短袍",
+    "slot": "chest",
+    "required_level": 1,
+    "base_stats": {
+      "max_hp": 40.0,
+      "armor": 6.0
+    }
+  },
+  "chainmail_armor": {
+    "id": "chainmail_armor",
+    "name_cn": "锁子胸甲",
+    "slot": "chest",
+    "required_level": 5,
+    "base_stats": {
+      "max_hp": 90.0,
+      "armor": 20.0
+    }
+  },
+  "leather_gloves": {
+    "id": "leather_gloves",
+    "name_cn": "粗制手套",
+    "slot": "gloves",
+    "required_level": 1,
+    "base_stats": {
+      "attack_damage": 3.0,
+      "armor": 3.0
+    }
+  },
+  "spiked_gauntlets": {
+    "id": "spiked_gauntlets",
+    "name_cn": "尖刺护手",
+    "slot": "gloves",
+    "required_level": 5,
+    "base_stats": {
+      "attack_damage": 10.0,
+      "crit_rate": 0.04
+    }
+  },
+  "worn_boots": {
+    "id": "worn_boots",
+    "name_cn": "磨损皮靴",
+    "slot": "boots",
+    "required_level": 1,
+    "base_stats": {
+      "evasion": 8.0,
+      "armor": 3.0
+    }
+  },
+  "plated_boots": {
+    "id": "plated_boots",
+    "name_cn": "轻装胫甲",
+    "slot": "boots",
+    "required_level": 5,
+    "base_stats": {
+      "evasion": 15.0,
+      "armor": 10.0
+    }
+  },
+  "copper_amulet": {
+    "id": "copper_amulet",
+    "name_cn": "铜质护符",
+    "slot": "amulet",
+    "required_level": 1,
+    "base_stats": {
+      "max_hp": 30.0,
+      "crit_damage": 0.1
+    }
+  },
+  "ruby_pendant": {
+    "id": "ruby_pendant",
+    "name_cn": "红玉坠饰",
+    "slot": "amulet",
+    "required_level": 5,
+    "base_stats": {
+      "max_hp": 75.0,
+      "fire_damage": 15.0
+    }
+  },
+  "iron_ring": {
+    "id": "iron_ring",
+    "name_cn": "铁制指环",
+    "slot": "ring",
+    "required_level": 1,
+    "base_stats": {
+      "attack_damage": 4.0,
+      "crit_rate": 0.02
+    }
+  },
+  "sapphire_ring": {
+    "id": "sapphire_ring",
+    "name_cn": "蓝宝戒指",
+    "slot": "ring",
+    "required_level": 5,
+    "base_stats": {
+      "attack_damage": 12.0,
+      "cold_damage": 14.0
+    }
+  }
+}

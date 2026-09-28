@@ -1,0 +1,88 @@
+[
+  {
+    "id": "resilient",
+    "name_cn": "坚韧",
+    "category": "defense",
+    "desc": "最大生命 +80%",
+    "hp_mult": 1.80
+  },
+  {
+    "id": "ironclad",
+    "name_cn": "铁甲",
+    "category": "defense",
+    "desc": "护甲值 +100%",
+    "armor_mult": 2.0
+  },
+  {
+    "id": "elusive",
+    "name_cn": "幻影",
+    "category": "defense",
+    "desc": "闪避值 +80%",
+    "evasion_mult": 1.80
+  },
+  {
+    "id": "frenzy",
+    "name_cn": "狂暴",
+    "category": "offense",
+    "desc": "攻击速度 +40%",
+    "speed_mult": 1.40
+  },
+  {
+    "id": "lethal",
+    "name_cn": "致命",
+    "category": "offense",
+    "desc": "暴击率 +20%，暴击伤害 +50%",
+    "crit_chance_add": 0.20
+  },
+  {
+    "id": "vampiric",
+    "name_cn": "嗜血",
+    "category": "offense",
+    "desc": "攻击附带 30% 生命偷取",
+    "life_steal_pct": 0.30
+  },
+  {
+    "id": "flame_infused",
+    "name_cn": "炽焰",
+    "category": "elemental",
+    "desc": "附加 40% 物理伤害的火焰伤害",
+    "extra_fire_pct": 0.40
+  },
+  {
+    "id": "frost_infused",
+    "name_cn": "极寒",
+    "category": "elemental",
+    "desc": "附加 40% 物理伤害的冰霜伤害",
+    "extra_cold_pct": 0.40
+  },
+  {
+    "id": "storm_infused",
+    "name_cn": "雷暴",
+    "category": "elemental",
+    "desc": "附加 40% 物理伤害的闪电伤害，击中施加感电",
+    "extra_lightning_pct": 0.40,
+    "shock_on_hit": true
+  },
+  {
+    "id": "rupture",
+    "name_cn": "撕裂",
+    "category": "debuff",
+    "desc": "攻击对玩家造成撕裂流血持续创伤",
+    "bleed_on_hit": true
+  },
+  {
+    "id": "overpowering",
+    "name_cn": "强力",
+    "category": "offense",
+    "desc": "物理攻击伤害 +45%",
+    "phys_dmg_mult": 1.45
+  },
+  {
+    "id": "colossal",
+    "name_cn": "泰坦",
+    "category": "defense",
+    "desc": "生命翻倍，攻击提升 20%",
+    "hp_mult": 2.0,
+    "phys_dmg_mult": 1.20
+  }
+]

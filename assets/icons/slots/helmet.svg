@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <!-- Helmet Dome -->
+  <path d="M16 3C10 3 6 8 6 14C6 17 6 22 8 26C9 28 11 29 16 29C21 29 23 28 24 26C26 22 26 17 26 14C26 8 22 3 16 3Z" fill="#FFFFFF"/>
+  <!-- Helmet Crest Top Line -->
+  <path d="M14 2H18V10H14V2Z" fill="#CBD5E1"/>
+  <!-- Eye Visor Slit (Cutout) -->
+  <path d="M9 13H23V16H18L16 17L14 16H9V13Z" fill="#1A202C"/>
+  <!-- Breathing holes / Grille -->
+  <circle cx="12" cy="21" r="1" fill="#1A202C"/>
+  <circle cx="16" cy="21" r="1" fill="#1A202C"/>
+  <circle cx="20" cy="21" r="1" fill="#1A202C"/>
+  <circle cx="14" cy="24" r="1" fill="#1A202C"/>
+  <circle cx="18" cy="24" r="1" fill="#1A202C"/>
+</svg>

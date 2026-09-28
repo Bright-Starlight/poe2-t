@@ -1,0 +1,151 @@
+{
+  "physical": {
+    "name_cn": "狂暴物理系",
+    "description": "专注于巨量物理伤害、斩击破甲、攻击速度与狂怒充能。",
+    "nodes": [
+      {
+        "id": "p1_might",
+        "name_cn": "蛮荒巨力",
+        "req": [],
+        "desc": "基础物理攻击力 +10%",
+        "modifiers": {"attack_damage_pct": 0.10}
+      },
+      {
+        "id": "p2_fury",
+        "name_cn": "狂怒觉醒",
+        "req": ["p1_might"],
+        "desc": "攻击速度 +8%，每次攻击获得 1 层【狂怒】(提升全伤害与攻速)",
+        "modifiers": {"attack_speed_pct": 0.08, "frenzy_charges": 1}
+      },
+      {
+        "id": "p3_cleave",
+        "name_cn": "重斩破甲",
+        "req": ["p2_fury"],
+        "desc": "物理暴击率 +5%，对精英怪伤害 +25%",
+        "modifiers": {"crit_rate": 0.05, "elite_damage_pct": 0.25}
+      },
+      {
+        "id": "p4_bleeding_edge",
+        "name_cn": "血之渴望",
+        "req": ["p3_cleave"],
+        "desc": "物理攻击 100% 触发【流血】创伤（造成 30% 额外持续物理伤害）",
+        "modifiers": {"bleed_on_hit": 1, "attack_damage_pct": 0.12}
+      }
+    ]
+  },
+  "elemental": {
+    "name_cn": "元素奥术系",
+    "description": "掌控烈焰、冰霜与风暴雷电，极大增强技能输出与感电易伤。",
+    "nodes": [
+      {
+        "id": "e1_spark",
+        "name_cn": "元素共鸣",
+        "req": [],
+        "desc": "火、冰、雷三系元素伤害 +15%",
+        "modifiers": {"elemental_damage_pct": 0.15}
+      },
+      {
+        "id": "e2_overload",
+        "name_cn": "法力过载",
+        "req": ["e1_spark"],
+        "desc": "技能法力消耗 -20%，最大法力上限 +50",
+        "modifiers": {"max_mp": 50.0, "mana_cost_reduction": 0.20}
+      },
+      {
+        "id": "e3_shock_master",
+        "name_cn": "雷霆感电",
+        "req": ["e2_overload"],
+        "desc": "技能暴击必定附加【感电】状态（目标承受所有伤害提升 20%）",
+        "modifiers": {"shock_on_crit": 1, "lightning_damage": 12.0}
+      },
+      {
+        "id": "e4_inferno",
+        "name_cn": "毁灭炎爆",
+        "req": ["e3_shock_master"],
+        "desc": "爆裂火球伤害 +40%，攻击附带烈焰燃烧效果",
+        "modifiers": {"fire_damage": 20.0, "elemental_damage_pct": 0.20}
+      }
+    ]
+  },
+  "crit_speed": {
+    "name_cn": "灵动暴击系",
+    "description": "游侠刺客之道，追求极致暴击倍率、高命中与闪避反哺。",
+    "nodes": [
+      {
+        "id": "c1_precision",
+        "name_cn": "精准打击",
+        "req": [],
+        "desc": "暴击率 +4%，命中率 +20",
+        "modifiers": {"crit_rate": 0.04, "accuracy": 20.0}
+      },
+      {
+        "id": "c2_lethal",
+        "name_cn": "致命一击",
+        "req": ["c1_precision"],
+        "desc": "暴击伤害倍率 +35%",
+        "modifiers": {"crit_damage": 0.35}
+      },
+      {
+        "id": "c3_ghost_dance",
+        "name_cn": "鬼魅幽影",
+        "req": ["c2_lethal"],
+        "desc": "闪避值 +30，每次成功闪避立即回复 6% 最大生命值",
+        "modifiers": {"evasion": 30.0, "ghost_dance_heal": 0.06}
+      }
+    ]
+  },
+  "defense": {
+    "name_cn": "钢铁坚韧系",
+    "description": "重甲守护者，高额百分比生命加成、护甲减伤与击中吸血。",
+    "nodes": [
+      {
+        "id": "d1_iron_skin",
+        "name_cn": "钢铁之躯",
+        "req": [],
+        "desc": "护甲值 +30%，受物理伤害 -8%",
+        "modifiers": {"armor_pct": 0.30}
+      },
+      {
+        "id": "d2_juggernaut",
+        "name_cn": "不灭泰坦",
+        "req": ["d1_iron_skin"],
+        "desc": "最大生命值 +20%",
+        "modifiers": {"max_hp_pct": 0.20}
+      },
+      {
+        "id": "d3_life_leech",
+        "name_cn": "血战不殆",
+        "req": ["d2_juggernaut"],
+        "desc": "击中生命回复 (Life on Hit) +12 点，生命自然回复 +10/s",
+        "modifiers": {"life_on_hit": 12.0}
+      }
+    ]
+  },
+  "magic_find": {
+    "name_cn": "寻宝秘术系",
+    "description": "淘金者与打宝专家专属，极大提升金币、极品装备与稀有通货掉落率。",
+    "nodes": [
+      {
+        "id": "m1_greed",
+        "name_cn": "贪婪财富",
+        "req": [],
+        "desc": "怪物击杀金币掉落 +35%",
+        "modifiers": {"gold_drop_mult": 0.35}
+      },
+      {
+        "id": "m2_treasure_hunter",
+        "name_cn": "鉴宝大师",
+        "req": ["m1_greed"],
+        "desc": "魔法与稀有装备掉落几率 +25%",
+        "modifiers": {"gear_drop_mult": 0.25}
+      },
+      {
+        "id": "m3_orb_mastery",
+        "name_cn": "通货支配",
+        "req": ["m2_treasure_hunter"],
+        "desc": "PoE 打造通货（改造/混沌/崇高）掉落率 +40%",
+        "modifiers": {"currency_drop_mult": 0.40}
+      }
+    ]
+  }
+}
